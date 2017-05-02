@@ -10,11 +10,17 @@ namespace LaraServe.Models
 {
     class Project
     {
+        private Dictionary<string, string> commands;
+
+        /// <summary>
+        /// Construct a new project.
+        /// </summary>
         public Project()
         {
             Port = 8080;
             Host = "127.0.0.1";
             Status = Status.Unknown;
+            commands = new Dictionary<string, string>();
         }
                         
         /// <summary>
@@ -27,6 +33,13 @@ namespace LaraServe.Models
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets the commands to run.
+        /// </summary>
+        public Dictionary<string, string> Commands
+        {
+            get { return commands.; }
+        }
 
         /// <summary>
         /// Gets or sets the host.
@@ -52,10 +65,30 @@ namespace LaraServe.Models
         /// Gets the URL where this project should be running.
         /// </summary>
         /// <returns></returns>
-        public string GetUrl()
+        public string URL
         {
-            string protocol = UseSecure ? "https" : "http";
-            return string.Format("{0}://{1}:{2}", protocol, Host, Port);
+            get
+            {
+                string protocol = UseSecure ? "https" : "http";
+                return string.Format("{0}://{1}:{2}", protocol, Host, Port);
+            }
+        }
+
+        /// <summary>
+        /// Adds a new command to the list.
+        /// </summary>
+        /// <param name="name">Name of the command (keep it short).</param>
+        /// <param name="command">The command to execute.</param>
+        public void AddCommand(string name, string command)
+        {
+            if (commands.ContainsKey(name))
+            {
+                throw new Exception("Another command with similar name exists");
+            }
+            else
+            {
+                commands.Add(name, command);
+            }
         }
 
     }

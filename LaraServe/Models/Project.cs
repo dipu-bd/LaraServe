@@ -16,15 +16,7 @@ namespace LaraServe.Models
             Host = "127.0.0.1";
             Status = Status.Unknown;
         }
-        
-        /// <summary>
-        /// Type of this project
-        /// </summary>
-        public ProjectType ProjectType
-        {
-            get { return ProjectType.Unknown; }
-        }
-                
+                        
         /// <summary>
         /// Gets or sets the location of the project.
         /// </summary>

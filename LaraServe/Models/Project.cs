@@ -10,7 +10,7 @@ namespace LaraServe.Models
 {
     class Project
     {
-        private Dictionary<string, Command> commands;
+        private Dictionary<string, Task> commands;
 
         /// <summary>
         /// Construct a new project.
@@ -20,7 +20,7 @@ namespace LaraServe.Models
             Port = 8080;
             Host = "127.0.0.1";
             Status = Status.Unknown;
-            commands = new Dictionary<string, Command>();
+            commands = new Dictionary<string, Task>();
         }
                         
         /// <summary>
@@ -36,7 +36,7 @@ namespace LaraServe.Models
         /// <summary>
         /// Gets the commands to run.
         /// </summary>
-        public Dictionary<string, Command> Commands
+        public Dictionary<string, Task> Commands
         {
             get { return commands; }
         }
@@ -87,7 +87,7 @@ namespace LaraServe.Models
             }
             else
             {
-                commands.Add(name, new Command(name, command));
+                commands.Add(name, new Task(name, command));
             }
         }
 

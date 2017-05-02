@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,77 +10,51 @@ namespace LaraServe.Models
 {
     class Project
     {
-        private List<string> commands = new List<string>();
-        private Directory location;
-        private string name;
-        private int port = 8000;
-        private string host = "127.0.0.1";
-        private Status status = Status.Unknown;
+        public Project()
+        {
+            Port = 8080;
+            Host = "127.0.0.1";
+            Status = Status.Unknown;
+        }
         
         /// <summary>
         /// Type of this project
         /// </summary>
-        public abstract ProjectType ProjectType
+        public ProjectType ProjectType
         {
             get { return ProjectType.Unknown; }
         }
-
-        /// <summary>
-        /// Gets or sets the name of this project.
-        /// </summary>
-        public List<string> Commands
-        {
-            get { return commands; }
-            set { commands = value; }
-        }
-
-        
+                
         /// <summary>
         /// Gets or sets the location of the project.
         /// </summary>
-        public Directory Location
-        {
-            get { return location; }
-            set { location = value; }
-        }
+        public Directory Location { get; set; }
 
         /// <summary>
         /// Gets or sets the name of this project.
         /// </summary>
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string Name { get; set; }
 
 
         /// <summary>
         /// Gets or sets the host.
         /// </summary>
-        public string Host
-        {
-            get { return host; }
-            set { host = value; }
-        }
+        public string Host { get; set; }
 
         /// <summary>
         /// Gets or sets the port number.
         /// </summary>
-        public int Port
-        {
-            get { return port; }
-            set { port = value; }
-        }
+        public int Port { get; set; }
 
         /// <summary>
         /// Gets or sets the current status.
         /// </summary>
-        public Status Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
-
+        public Status Status { get; set; }
+        
+        /// <summary>
+        /// Gets or sets whether to use secured https protocol
+        /// </summary>
+        public bool UseSecure { get; set; }
 
         /// <summary>
         /// Gets the URL where this project should be running.
@@ -87,7 +62,8 @@ namespace LaraServe.Models
         /// <returns></returns>
         public string GetUrl()
         {
-            return string.Format("http://{}:{}", host, port);
+            string protocol = UseSecure ? "https" : "http";
+            return string.Format("{0}://{1}:{2}", protocol, Host, Port);
         }
 
     }

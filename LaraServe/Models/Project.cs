@@ -9,7 +9,7 @@ namespace LaraServe.Models
 {
     class Project
     {
-        private string[] commands = { };
+        private List<string> commands = new List<string>();
         private Directory location;
         private string name;
         private int port = 8000;
@@ -23,6 +23,16 @@ namespace LaraServe.Models
         {
             get { return ProjectType.Unknown; }
         }
+
+        /// <summary>
+        /// Gets or sets the name of this project.
+        /// </summary>
+        public List<string> Commands
+        {
+            get { return commands; }
+            set { commands = value; }
+        }
+
         
         /// <summary>
         /// Gets or sets the location of the project.

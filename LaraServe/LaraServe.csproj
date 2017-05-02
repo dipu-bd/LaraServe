@@ -82,7 +82,6 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Project.cs" />
-    <Compile Include="Models\ProjectType.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

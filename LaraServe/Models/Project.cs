@@ -26,7 +26,7 @@ namespace LaraServe.Models
         /// <summary>
         /// Gets or sets the location of the project.
         /// </summary>
-        public Directory Location { get; set; }
+        public string Location { get; set; }
 
         /// <summary>
         /// Gets or sets the name of this project.
@@ -38,7 +38,7 @@ namespace LaraServe.Models
         /// </summary>
         public Dictionary<string, string> Commands
         {
-            get { return commands.; }
+            get { return commands; }
         }
 
         /// <summary>

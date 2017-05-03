@@ -16,8 +16,25 @@ namespace LaraServe
         public MainForm()
         {
             InitializeComponent();
+
             runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
+        }
+
+        public void MinimizeToTray()
+        {
+            this.Hide();
+            this.notifyIcon.ShowBalloonTip(2000);
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            if (Options.StartMinimized)
+            {
+                this.BeginInvoke(new MethodInvoker(this.Hide));
+            }
         }
 
         /// <summary>
@@ -68,8 +85,7 @@ namespace LaraServe
 
         private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            this.Close();
+            this.MinimizeToTray();            
         }
 
         private void cueTextBox1_KeyUp(object sender, KeyEventArgs e)

@@ -33,27 +33,29 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel5 = new System.Windows.Forms.Panel();
             this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
             this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.hostColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
-            this.closeToolButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.mainContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.minimizeToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
+            this.closeToolButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cueTextBox1 = new LaraServe.Components.CueTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
+            this.mainContextMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,10 +99,14 @@
             this.panel4.Size = new System.Drawing.Size(200, 33);
             this.panel4.TabIndex = 3;
             // 
-            // notifyIcon1
+            // notifyIcon
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.notifyIcon.BalloonTipText = "The LaraServe is running in the background.";
+            this.notifyIcon.BalloonTipTitle = "LaraServe";
+            this.notifyIcon.ContextMenuStrip = this.mainContextMenu;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "LaraServe";
+            this.notifyIcon.Visible = true;
             // 
             // statusStrip1
             // 
@@ -163,51 +169,17 @@
             this.hostColumn.Text = "Project URL";
             this.hostColumn.Width = 250;
             // 
-            // toolStrip1
+            // mainContextMenu
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeToolButton,
-            this.toolStripSplitButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(684, 1);
-            this.toolStrip1.Margin = new System.Windows.Forms.Padding(1);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(105, 58);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // closeToolButton
-            // 
-            this.closeToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.closeToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.closeToolButton.Image = global::LaraServe.Properties.Resources.cross;
-            this.closeToolButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.closeToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.closeToolButton.Name = "closeToolButton";
-            this.closeToolButton.Size = new System.Drawing.Size(28, 55);
-            this.closeToolButton.Text = "Close";
-            this.closeToolButton.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSplitButton1.AutoSize = false;
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addProjectToolStripMenuItem,
             this.runAtStartupToolStripMenuItem,
             this.startMinimizedToolStripMenuItem,
             this.toolStripSeparator1,
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(60, 50);
-            this.toolStripSplitButton1.Text = "Options";
+            this.mainContextMenu.Name = "mainContextMenu";
+            this.mainContextMenu.Size = new System.Drawing.Size(167, 120);
             // 
             // addProjectToolStripMenuItem
             // 
@@ -253,6 +225,46 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolButton_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolButton,
+            this.toolStripSplitButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(684, 1);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(1);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(105, 58);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // closeToolButton
+            // 
+            this.closeToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.closeToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.closeToolButton.Image = global::LaraServe.Properties.Resources.cross;
+            this.closeToolButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.closeToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.closeToolButton.Name = "closeToolButton";
+            this.closeToolButton.Size = new System.Drawing.Size(28, 55);
+            this.closeToolButton.Text = "Close";
+            this.closeToolButton.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSplitButton1.AutoSize = false;
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDown = this.mainContextMenu;
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(60, 50);
+            this.toolStripSplitButton1.Text = "Options";
+            // 
             // cueTextBox1
             // 
             this.cueTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -266,7 +278,7 @@
             this.cueTextBox1.TabIndex = 1;
             this.cueTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cueTextBox1_KeyUp);
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -278,7 +290,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LaraServe";
@@ -288,6 +300,7 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
+            this.mainContextMenu.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -300,14 +313,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private LaraServe.Components.CustomToolStrip toolStrip1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem addProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem runAtStartupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem minimizeToTrayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton closeToolButton;
         private Components.CueTextBox cueTextBox1;
         private System.Windows.Forms.Panel panel4;
@@ -316,7 +324,13 @@
         private BrightIdeasSoftware.OLVColumn nameColumn;
         private BrightIdeasSoftware.OLVColumn hostColumn;
         private BrightIdeasSoftware.OLVColumn statusColumn;
+        private System.Windows.Forms.ContextMenuStrip mainContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem addProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem runAtStartupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startMinimizedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToTrayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

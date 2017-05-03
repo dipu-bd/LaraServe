@@ -9,8 +9,6 @@ namespace LaraServe
 {
     static class Program
     {
-        static MainForm mainForm;
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -19,12 +17,9 @@ namespace LaraServe
         {
             PreTasks();
 
-            mainForm = new MainForm();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(mainForm);
-
-            PostTasks();
+            Application.Run(new MainForm());
         }
 
         private static void PreTasks()
@@ -42,12 +37,5 @@ namespace LaraServe
 
         }
 
-        private static void PostTasks()
-        {
-            if (Options.StartMinimized)
-            {
-                mainForm.Hide();
-            }
-        }
     }
 }

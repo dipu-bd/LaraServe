@@ -16,6 +16,7 @@ namespace LaraServe
         public Main()
         {
             InitializeComponent();
+            runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace LaraServe
             if (e.Button == MouseButtons.Left)
             {
                 WinAPI.ReleaseCapture();
-                WinAPI.SendMessage(Handle, WinAPI.WM_NCLBUTTONDOWN, WinAPI.HT_CAPTION, 0); 
+                WinAPI.SendMessage(Handle, WinAPI.WM_NCLBUTTONDOWN, WinAPI.HT_CAPTION, 0);
             }
         }
 
@@ -54,9 +55,9 @@ namespace LaraServe
 
         }
 
-        private void runAtStartupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void runAtStartupToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-
+            Options.RunAtStartup = ((ToolStripMenuItem)sender).Checked;
         }
 
         private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,6 +65,15 @@ namespace LaraServe
             //this.Hide();
             this.Close();
         }
+
+        private void cueTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // filter or search by text
+            }
+        }
+
 
     }
 }

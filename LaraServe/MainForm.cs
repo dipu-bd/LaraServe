@@ -11,9 +11,9 @@ using LaraServe.Helper;
 
 namespace LaraServe
 {
-    public partial class Main : System.Windows.Forms.Form
+    public partial class MainForm : System.Windows.Forms.Form
     {
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
             runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;

@@ -94,7 +94,6 @@
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.mainContextMenu.Name = "mainContextMenu";
-            this.mainContextMenu.OwnerItem = this.settingsToolButton;
             this.mainContextMenu.Size = new System.Drawing.Size(167, 142);
             // 
             // addProjectToolStripMenuItem
@@ -202,7 +201,7 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "LaraServe";
             this.notifyIcon.Visible = true;
-            this.notifyIcon.DoubleClick += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+            this.notifyIcon.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -213,6 +212,7 @@
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             // 
             // panel5
             // 
@@ -363,6 +363,7 @@
             this.Padding = new System.Windows.Forms.Padding(7, 0, 7, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LaraServe";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.mainContextMenu.ResumeLayout(false);

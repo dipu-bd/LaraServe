@@ -138,8 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.ico" />
-    <None Include="Resources\cog2.png" />
     <None Include="Resources\cog1.png" />
+    <None Include="Resources\cog2.png" />
     <None Include="Resources\close2.png" />
     <None Include="Resources\close1.png" />
     <None Include="Resources\glass.png" />

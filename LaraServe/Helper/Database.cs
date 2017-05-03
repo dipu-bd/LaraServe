@@ -32,7 +32,7 @@ namespace LaraServe
         /// <param name="key">Value name</param>
         /// <param name="value">The value</param>
         /// <param name="kind">Type of the value</param>
-        public static void store(string key, string value, RegistryValueKind kind = RegistryValueKind.String)
+        public static void store(string key, object value, RegistryValueKind kind = RegistryValueKind.String)
         {
             Root.SetValue(key, value, kind);
         }
@@ -43,9 +43,9 @@ namespace LaraServe
         /// <param name="key">Value name</param>
         /// <param name="defaultValue">Default value incase of failure in retrieval</param>
         /// <param name="options">Additional options</param>
-        public static void retrieve(string key, object defaultValue = null, RegistryValueOptions options = RegistryValueOptions.None)
+        public static object retrieve(string key, object defaultValue = null, RegistryValueOptions options = RegistryValueOptions.None)
         {
-            Root.GetValue(key, defaultValue, options);
+            return Root.GetValue(key, defaultValue, options);
         }
 
         /// <summary>

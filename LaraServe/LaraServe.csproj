@@ -93,6 +93,8 @@
     <Compile Include="Components\CustomToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Helper\Utils.cs" />
+    <Compile Include="Helper\Options.cs" />
     <Compile Include="Helper\WinAPI.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

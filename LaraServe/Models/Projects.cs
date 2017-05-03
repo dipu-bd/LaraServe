@@ -12,7 +12,7 @@ namespace LaraServe.Models
         {
         }
 
-        public static List<Project> SampleData()
+        public static Projects SampleData()
         {
             Projects projects = new Projects();
 

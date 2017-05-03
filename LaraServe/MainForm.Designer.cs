@@ -43,7 +43,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.projectListView = new BrightIdeasSoftware.ObjectListView();
             this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.hostColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -56,7 +56,7 @@
             this.mainContextMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectListView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,6 @@
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.mainContextMenu.Name = "mainContextMenu";
-            this.mainContextMenu.OwnerItem = this.toolStripSplitButton1;
             this.mainContextMenu.Size = new System.Drawing.Size(167, 142);
             // 
             // addProjectToolStripMenuItem
@@ -181,34 +180,34 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel5.Controls.Add(this.objectListView1);
+            this.panel5.Controls.Add(this.projectListView);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(5, 63);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(790, 392);
             this.panel5.TabIndex = 3;
             // 
-            // objectListView1
+            // projectListView
             // 
-            this.objectListView1.AllColumns.Add(this.statusColumn);
-            this.objectListView1.AllColumns.Add(this.nameColumn);
-            this.objectListView1.AllColumns.Add(this.hostColumn);
-            this.objectListView1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.objectListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.objectListView1.CellEditUseWholeCell = false;
-            this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.projectListView.AllColumns.Add(this.statusColumn);
+            this.projectListView.AllColumns.Add(this.nameColumn);
+            this.projectListView.AllColumns.Add(this.hostColumn);
+            this.projectListView.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.projectListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.projectListView.CellEditUseWholeCell = false;
+            this.projectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.statusColumn,
             this.nameColumn,
             this.hostColumn});
-            this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.objectListView1.ForeColor = System.Drawing.Color.White;
-            this.objectListView1.Location = new System.Drawing.Point(0, 0);
-            this.objectListView1.Name = "objectListView1";
-            this.objectListView1.Size = new System.Drawing.Size(790, 392);
-            this.objectListView1.TabIndex = 0;
-            this.objectListView1.UseCompatibleStateImageBehavior = false;
-            this.objectListView1.View = System.Windows.Forms.View.Details;
+            this.projectListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.projectListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.projectListView.ForeColor = System.Drawing.Color.White;
+            this.projectListView.Location = new System.Drawing.Point(0, 0);
+            this.projectListView.Name = "projectListView";
+            this.projectListView.Size = new System.Drawing.Size(790, 392);
+            this.projectListView.TabIndex = 0;
+            this.projectListView.UseCompatibleStateImageBehavior = false;
+            this.projectListView.View = System.Windows.Forms.View.Details;
             // 
             // statusColumn
             // 
@@ -312,7 +311,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectListView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -332,7 +331,7 @@
         private Components.CueTextBox cueTextBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private BrightIdeasSoftware.ObjectListView objectListView1;
+        private BrightIdeasSoftware.ObjectListView projectListView;
         private BrightIdeasSoftware.OLVColumn nameColumn;
         private BrightIdeasSoftware.OLVColumn hostColumn;
         private BrightIdeasSoftware.OLVColumn statusColumn;

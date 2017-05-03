@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LaraServe.Helper;
+using LaraServe.Models;
 
 namespace LaraServe
 {
@@ -21,25 +22,48 @@ namespace LaraServe
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
         }
 
-
+        /// <summary>
+        /// Restors the window to the previous position.
+        /// </summary>
         public void Restore()
         {
-            this.Show();
-            restoreToolStripMenuItem.Visible = false;
-            minimizeToTrayToolStripMenuItem.Visible = true;
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                this.Show();
+                restoreToolStripMenuItem.Visible = false;
+                minimizeToTrayToolStripMenuItem.Visible = true;
+            }));
         }
 
+        /// <summary>
+        /// Minimizes the window to the tray.
+        /// </summary>
         public void MinimizeToTray()
         {
-            this.Hide();
-            this.notifyIcon.ShowBalloonTip(2000);
-            restoreToolStripMenuItem.Visible = true;
-            minimizeToTrayToolStripMenuItem.Visible = false;
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                this.Hide();
+                this.notifyIcon.ShowBalloonTip(2000);
+                restoreToolStripMenuItem.Visible = true;
+                minimizeToTrayToolStripMenuItem.Visible = false;
+            }));
         }
-        
+
+        /// <summary>
+        /// Adds new project.
+        /// </summary>
         public void AddNewProject()
         {
 
+        }
+
+        /// <summary>
+        /// Loads project list.
+        /// </summary>
+        public void LoadProjects()
+        {
+            Projects samples = Projects.SampleData();
+            projectListView.SetObjects(samples);
         }
 
 
@@ -51,6 +75,8 @@ namespace LaraServe
             {
                 this.BeginInvoke(new MethodInvoker(this.Hide));
             }
+
+            this.LoadProjects();
         }
 
         /// <summary>
@@ -107,7 +133,7 @@ namespace LaraServe
 
         private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.MinimizeToTray();            
+            this.MinimizeToTray();
         }
 
         private void cueTextBox1_KeyUp(object sender, KeyEventArgs e)

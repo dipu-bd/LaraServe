@@ -36,6 +36,10 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.nameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.hostColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
             this.closeToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -47,6 +51,8 @@
             this.cueTextBox1 = new LaraServe.Components.CueTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,11 +114,53 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel5.Controls.Add(this.objectListView1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(5, 63);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(790, 392);
             this.panel5.TabIndex = 3;
+            // 
+            // objectListView1
+            // 
+            this.objectListView1.AllColumns.Add(this.statusColumn);
+            this.objectListView1.AllColumns.Add(this.nameColumn);
+            this.objectListView1.AllColumns.Add(this.hostColumn);
+            this.objectListView1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.objectListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.objectListView1.CellEditUseWholeCell = false;
+            this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.statusColumn,
+            this.nameColumn,
+            this.hostColumn});
+            this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.objectListView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objectListView1.ForeColor = System.Drawing.Color.White;
+            this.objectListView1.Location = new System.Drawing.Point(0, 0);
+            this.objectListView1.Name = "objectListView1";
+            this.objectListView1.Size = new System.Drawing.Size(790, 392);
+            this.objectListView1.TabIndex = 0;
+            this.objectListView1.UseCompatibleStateImageBehavior = false;
+            this.objectListView1.View = System.Windows.Forms.View.Details;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.AspectName = "Name";
+            this.nameColumn.FillsFreeSpace = true;
+            this.nameColumn.Text = "Project Name";
+            this.nameColumn.Width = 200;
+            // 
+            // hostColumn
+            // 
+            this.hostColumn.AspectName = "URL";
+            this.hostColumn.FillsFreeSpace = true;
+            this.hostColumn.Text = "Project URL";
+            this.hostColumn.Width = 250;
+            // 
+            // statusColumn
+            // 
+            this.statusColumn.AspectName = "Status";
+            this.statusColumn.Text = "Status";
             // 
             // toolStrip1
             // 
@@ -228,6 +276,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -252,6 +302,10 @@
         private Components.CueTextBox cueTextBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private BrightIdeasSoftware.ObjectListView objectListView1;
+        private BrightIdeasSoftware.OLVColumn nameColumn;
+        private BrightIdeasSoftware.OLVColumn hostColumn;
+        private BrightIdeasSoftware.OLVColumn statusColumn;
     }
 }
 

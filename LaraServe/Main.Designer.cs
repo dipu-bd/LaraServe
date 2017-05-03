@@ -169,10 +169,11 @@
             // 
             // runAtStartupToolStripMenuItem
             // 
+            this.runAtStartupToolStripMenuItem.CheckOnClick = true;
             this.runAtStartupToolStripMenuItem.Name = "runAtStartupToolStripMenuItem";
             this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.runAtStartupToolStripMenuItem.Text = "Run At Startup";
-            this.runAtStartupToolStripMenuItem.Click += new System.EventHandler(this.runAtStartupToolStripMenuItem_Click);
+            this.runAtStartupToolStripMenuItem.CheckedChanged += new System.EventHandler(this.runAtStartupToolStripMenuItem_CheckedChanged);
             // 
             // toolStripSeparator1
             // 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LaraServe.Helper;
 
 namespace LaraServe
 {
@@ -15,6 +16,11 @@ namespace LaraServe
         static void Main()
         {
             Database.Initiate();
+            if (Utils.IsFirstRun())
+            {
+                Options.RunAtStartup = true;
+            }
+            Options.LastRun = DateTime.Now;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

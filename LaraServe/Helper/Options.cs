@@ -24,6 +24,21 @@ namespace LaraServe.Helper
         }
 
         /// <summary>
+        /// Gets or sets whether to run this application at start of the computer.
+        /// </summary>
+        public static bool StartMinimized
+        {
+            get
+            {
+                return (int) Database.retrieve("Start Minimized", 0) != 0;
+            }
+            set
+            {
+                Database.store("Start Minimized", value ? 1 : 0, Microsoft.Win32.RegistryValueKind.DWord);
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the last time this application was open.
         /// </summary>
         public static DateTime LastRun

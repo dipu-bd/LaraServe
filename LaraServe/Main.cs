@@ -17,6 +17,7 @@ namespace LaraServe
         {
             InitializeComponent();
             runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;
+            startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
         }
 
         /// <summary>
@@ -60,6 +61,11 @@ namespace LaraServe
             Options.RunAtStartup = ((ToolStripMenuItem)sender).Checked;
         }
 
+        private void startMinimizedToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.StartMinimized = ((ToolStripMenuItem)sender).Checked;
+        }
+
         private void minimizeToTrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //this.Hide();
@@ -73,6 +79,7 @@ namespace LaraServe
                 // filter or search by text
             }
         }
+
 
 
     }

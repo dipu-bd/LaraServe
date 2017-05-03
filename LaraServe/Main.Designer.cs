@@ -37,14 +37,15 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel5 = new System.Windows.Forms.Panel();
             this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.hostColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
             this.closeToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.minimizeToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,6 +144,11 @@
             this.objectListView1.UseCompatibleStateImageBehavior = false;
             this.objectListView1.View = System.Windows.Forms.View.Details;
             // 
+            // statusColumn
+            // 
+            this.statusColumn.AspectName = "Status";
+            this.statusColumn.Text = "Status";
+            // 
             // nameColumn
             // 
             this.nameColumn.AspectName = "Name";
@@ -156,11 +162,6 @@
             this.hostColumn.FillsFreeSpace = true;
             this.hostColumn.Text = "Project URL";
             this.hostColumn.Width = 250;
-            // 
-            // statusColumn
-            // 
-            this.statusColumn.AspectName = "Status";
-            this.statusColumn.Text = "Status";
             // 
             // toolStrip1
             // 
@@ -198,6 +199,7 @@
             this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addProjectToolStripMenuItem,
             this.runAtStartupToolStripMenuItem,
+            this.startMinimizedToolStripMenuItem,
             this.toolStripSeparator1,
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -222,6 +224,14 @@
             this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.runAtStartupToolStripMenuItem.Text = "Run At Startup";
             this.runAtStartupToolStripMenuItem.CheckedChanged += new System.EventHandler(this.runAtStartupToolStripMenuItem_CheckedChanged);
+            // 
+            // startMinimizedToolStripMenuItem
+            // 
+            this.startMinimizedToolStripMenuItem.CheckOnClick = true;
+            this.startMinimizedToolStripMenuItem.Name = "startMinimizedToolStripMenuItem";
+            this.startMinimizedToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.startMinimizedToolStripMenuItem.Text = "Start Minimized";
+            this.startMinimizedToolStripMenuItem.CheckedChanged += new System.EventHandler(this.startMinimizedToolStripMenuItem_CheckedChanged);
             // 
             // toolStripSeparator1
             // 
@@ -306,6 +316,7 @@
         private BrightIdeasSoftware.OLVColumn nameColumn;
         private BrightIdeasSoftware.OLVColumn hostColumn;
         private BrightIdeasSoftware.OLVColumn statusColumn;
+        private System.Windows.Forms.ToolStripMenuItem startMinimizedToolStripMenuItem;
     }
 }
 

@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.mainContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.minimizeToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -40,22 +47,16 @@
             this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.hostColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.mainContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.minimizeToTrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
             this.closeToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cueTextBox1 = new LaraServe.Components.CueTextBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.mainContextMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
-            this.mainContextMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +78,64 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(790, 60);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            // 
+            // mainContextMenu
+            // 
+            this.mainContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addProjectToolStripMenuItem,
+            this.runAtStartupToolStripMenuItem,
+            this.startMinimizedToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.restoreToolStripMenuItem,
+            this.minimizeToTrayToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.mainContextMenu.Name = "mainContextMenu";
+            this.mainContextMenu.OwnerItem = this.toolStripSplitButton1;
+            this.mainContextMenu.Size = new System.Drawing.Size(167, 142);
+            // 
+            // addProjectToolStripMenuItem
+            // 
+            this.addProjectToolStripMenuItem.Image = global::LaraServe.Properties.Resources.add;
+            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addProjectToolStripMenuItem.Text = "Add Project";
+            this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
+            // 
+            // runAtStartupToolStripMenuItem
+            // 
+            this.runAtStartupToolStripMenuItem.CheckOnClick = true;
+            this.runAtStartupToolStripMenuItem.Name = "runAtStartupToolStripMenuItem";
+            this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.runAtStartupToolStripMenuItem.Text = "Run At Startup";
+            this.runAtStartupToolStripMenuItem.CheckedChanged += new System.EventHandler(this.runAtStartupToolStripMenuItem_CheckedChanged);
+            // 
+            // startMinimizedToolStripMenuItem
+            // 
+            this.startMinimizedToolStripMenuItem.CheckOnClick = true;
+            this.startMinimizedToolStripMenuItem.Name = "startMinimizedToolStripMenuItem";
+            this.startMinimizedToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.startMinimizedToolStripMenuItem.Text = "Start Minimized";
+            this.startMinimizedToolStripMenuItem.CheckedChanged += new System.EventHandler(this.startMinimizedToolStripMenuItem_CheckedChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
+            // 
+            // minimizeToTrayToolStripMenuItem
+            // 
+            this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
+            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.minimizeToTrayToolStripMenuItem.Text = "Minimize To Tray";
+            this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolButton_Click);
             // 
             // panel1
             // 
@@ -107,6 +166,7 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "LaraServe";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -169,61 +229,13 @@
             this.hostColumn.Text = "Project URL";
             this.hostColumn.Width = 250;
             // 
-            // mainContextMenu
+            // restoreToolStripMenuItem
             // 
-            this.mainContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProjectToolStripMenuItem,
-            this.runAtStartupToolStripMenuItem,
-            this.startMinimizedToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.minimizeToTrayToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.mainContextMenu.Name = "mainContextMenu";
-            this.mainContextMenu.Size = new System.Drawing.Size(167, 120);
-            // 
-            // addProjectToolStripMenuItem
-            // 
-            this.addProjectToolStripMenuItem.Image = global::LaraServe.Properties.Resources.add;
-            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
-            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.addProjectToolStripMenuItem.Text = "Add Project";
-            this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
-            // 
-            // runAtStartupToolStripMenuItem
-            // 
-            this.runAtStartupToolStripMenuItem.CheckOnClick = true;
-            this.runAtStartupToolStripMenuItem.Name = "runAtStartupToolStripMenuItem";
-            this.runAtStartupToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.runAtStartupToolStripMenuItem.Text = "Run At Startup";
-            this.runAtStartupToolStripMenuItem.CheckedChanged += new System.EventHandler(this.runAtStartupToolStripMenuItem_CheckedChanged);
-            // 
-            // startMinimizedToolStripMenuItem
-            // 
-            this.startMinimizedToolStripMenuItem.CheckOnClick = true;
-            this.startMinimizedToolStripMenuItem.Name = "startMinimizedToolStripMenuItem";
-            this.startMinimizedToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.startMinimizedToolStripMenuItem.Text = "Start Minimized";
-            this.startMinimizedToolStripMenuItem.CheckedChanged += new System.EventHandler(this.startMinimizedToolStripMenuItem_CheckedChanged);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
-            // 
-            // minimizeToTrayToolStripMenuItem
-            // 
-            this.minimizeToTrayToolStripMenuItem.Name = "minimizeToTrayToolStripMenuItem";
-            this.minimizeToTrayToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.minimizeToTrayToolStripMenuItem.Text = "Minimize To Tray";
-            this.minimizeToTrayToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeToolButton_Click);
+            this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.restoreToolStripMenuItem.Text = "Restore";
+            this.restoreToolStripMenuItem.Visible = false;
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -296,11 +308,11 @@
             this.Text = "LaraServe";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.mainContextMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).EndInit();
-            this.mainContextMenu.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -331,6 +343,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem minimizeToTrayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
     }
 }
 

@@ -21,11 +21,27 @@ namespace LaraServe
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
         }
 
+
+        public void Restore()
+        {
+            this.Show();
+            restoreToolStripMenuItem.Visible = false;
+            minimizeToTrayToolStripMenuItem.Visible = true;
+        }
+
         public void MinimizeToTray()
         {
             this.Hide();
             this.notifyIcon.ShowBalloonTip(2000);
+            restoreToolStripMenuItem.Visible = true;
+            minimizeToTrayToolStripMenuItem.Visible = false;
         }
+        
+        public void AddNewProject()
+        {
+
+        }
+
 
         protected override void OnLoad(EventArgs e)
         {
@@ -68,9 +84,15 @@ namespace LaraServe
             this.Close();
         }
 
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Restore();
+        }
+
         private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Restore();
+            this.AddNewProject();
         }
 
         private void runAtStartupToolStripMenuItem_CheckedChanged(object sender, EventArgs e)

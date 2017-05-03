@@ -90,6 +90,7 @@
             this.minimizeToTrayToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.mainContextMenu.Name = "mainContextMenu";
+            this.mainContextMenu.OwnerItem = this.toolStripSplitButton1;
             this.mainContextMenu.Size = new System.Drawing.Size(167, 142);
             // 
             // addProjectToolStripMenuItem
@@ -201,12 +202,21 @@
             this.hostColumn});
             this.projectListView.Cursor = System.Windows.Forms.Cursors.Default;
             this.projectListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.projectListView.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.projectListView.ForeColor = System.Drawing.Color.White;
+            this.projectListView.FullRowSelect = true;
             this.projectListView.Location = new System.Drawing.Point(0, 0);
             this.projectListView.Name = "projectListView";
+            this.projectListView.SelectAllOnControlA = false;
+            this.projectListView.ShowGroups = false;
+            this.projectListView.ShowItemToolTips = true;
             this.projectListView.Size = new System.Drawing.Size(790, 392);
             this.projectListView.TabIndex = 0;
+            this.projectListView.UseCellFormatEvents = true;
             this.projectListView.UseCompatibleStateImageBehavior = false;
+            this.projectListView.UseFilterIndicator = true;
+            this.projectListView.UseFiltering = true;
+            this.projectListView.UseTranslucentSelection = true;
             this.projectListView.View = System.Windows.Forms.View.Details;
             // 
             // statusColumn

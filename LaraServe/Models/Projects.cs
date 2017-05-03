@@ -22,12 +22,14 @@ namespace LaraServe.Models
             project1.Port = 3432;
             project1.AddCommand("Test", "chdir");
             project1.AddCommand("CD Test", "D:\ncd $Location\nchdir");
+            project1.Status = Status.Unknown;
             projects.Add(project1);
 
             Project project3 = new Project();
             project3.Location = @"D:\Projects\course_feedback";
             project3.Name = "Course Feedback";
             project3.AddCommand("Run", "php artisan serve");
+            project3.Status = Status.Active;
             projects.Add(project3);
 
             Project project4 = new Project();
@@ -36,6 +38,7 @@ namespace LaraServe.Models
             project4.AddCommand("Watch", "yarn watch");
             project4.AddCommand("Dev", "yarn run dev");
             project4.AddCommand("Serve", "php artisan serve --host=$Host --port=$Port");
+            project4.Status = Status.Inactive;
             projects.Add(project4);
 
             Project project2 = new Project();
@@ -43,6 +46,7 @@ namespace LaraServe.Models
             project2.UseSecure = true;
             project2.Host = "www.facebook.com";
             project2.Port = 80;
+            project2.Status = Status.Failing;
             projects.Add(project2);
 
             return projects;

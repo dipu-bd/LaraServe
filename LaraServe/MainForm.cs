@@ -21,19 +21,19 @@ namespace LaraServe
             runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
 
-            nameColumn.ImageGetter = delegate (object row) {
+            statusColumn.ImageGetter = delegate (object row) {
                 Project project = (Project)row;
                 switch(project.Status)
                 {
                     case Status.Active:
-                        return "active";
+                        return "active.png";
                     case Status.Inactive:
-                        return "inactive";
+                        return "inactive.png";
                     case Status.Failing:
-                        return "failing";
+                        return "failing.png";
                     case Status.Unknown:
                     default:
-                        return "unknown";
+                        return "unknown.png";
                 }
             };
         }

@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
-            this.closeToolButton = new System.Windows.Forms.ToolStripButton();
-            this.settingsToolButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.mainContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runAtStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,20 +42,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.searchButton = new System.Windows.Forms.Button();
-            this.searchTextBox = new LaraServe.Components.CueTextBox();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel5 = new System.Windows.Forms.Panel();
             this.projectListView = new BrightIdeasSoftware.ObjectListView();
+            this.statusColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nameColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.urlColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolStrip1 = new LaraServe.Components.CustomToolStrip();
+            this.closeToolButton = new System.Windows.Forms.ToolStripButton();
+            this.settingsToolButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.searchTextBox = new LaraServe.Components.CueTextBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.mainContextMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectListView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,49 +82,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 60);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeToolButton,
-            this.settingsToolButton});
-            this.toolStrip1.Location = new System.Drawing.Point(695, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(91, 60);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // closeToolButton
-            // 
-            this.closeToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.closeToolButton.AutoSize = false;
-            this.closeToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.closeToolButton.Image = global::LaraServe.Properties.Resources.close1;
-            this.closeToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.closeToolButton.Name = "closeToolButton";
-            this.closeToolButton.Size = new System.Drawing.Size(36, 42);
-            this.closeToolButton.Text = "Close";
-            this.closeToolButton.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
-            this.closeToolButton.MouseEnter += new System.EventHandler(this.closeToolButton_MouseEnter);
-            this.closeToolButton.MouseLeave += new System.EventHandler(this.closeToolButton_MouseLeave);
-            // 
-            // settingsToolButton
-            // 
-            this.settingsToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.settingsToolButton.AutoSize = false;
-            this.settingsToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.settingsToolButton.DropDown = this.mainContextMenu;
-            this.settingsToolButton.Image = global::LaraServe.Properties.Resources.cog1;
-            this.settingsToolButton.Name = "settingsToolButton";
-            this.settingsToolButton.Size = new System.Drawing.Size(48, 42);
-            this.settingsToolButton.Text = "Options";
-            this.settingsToolButton.MouseEnter += new System.EventHandler(this.settingsToolButton_MouseEnter);
-            this.settingsToolButton.MouseLeave += new System.EventHandler(this.settingsToolButton_MouseLeave);
             // 
             // mainContextMenu
             // 
@@ -237,19 +195,6 @@
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox.Cue = "Search";
-            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(6, 8);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(163, 20);
-            this.searchTextBox.TabIndex = 1;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.cueTextBox1_TextChanged);
-            // 
             // notifyIcon
             // 
             this.notifyIcon.BalloonTipText = "The LaraServe is running in the background.";
@@ -281,12 +226,14 @@
             // 
             // projectListView
             // 
+            this.projectListView.AllColumns.Add(this.statusColumn);
             this.projectListView.AllColumns.Add(this.nameColumn);
             this.projectListView.AllColumns.Add(this.urlColumn);
             this.projectListView.BackColor = System.Drawing.Color.DarkSlateGray;
             this.projectListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.projectListView.CellEditUseWholeCell = false;
             this.projectListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.statusColumn,
             this.nameColumn,
             this.urlColumn});
             this.projectListView.Cursor = System.Windows.Forms.Cursors.Default;
@@ -313,6 +260,11 @@
             this.projectListView.View = System.Windows.Forms.View.Details;
             this.projectListView.FormatCell += new System.EventHandler<BrightIdeasSoftware.FormatCellEventArgs>(this.projectListView_FormatCell);
             // 
+            // statusColumn
+            // 
+            this.statusColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.statusColumn.Width = 32;
+            // 
             // nameColumn
             // 
             this.nameColumn.AspectName = "Name";
@@ -333,10 +285,66 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "active");
-            this.imageList1.Images.SetKeyName(1, "failing");
-            this.imageList1.Images.SetKeyName(2, "inactive");
-            this.imageList1.Images.SetKeyName(3, "unknown");
+            this.imageList1.Images.SetKeyName(0, "active.png");
+            this.imageList1.Images.SetKeyName(1, "failing.png");
+            this.imageList1.Images.SetKeyName(2, "inactive.png");
+            this.imageList1.Images.SetKeyName(3, "unknown.png");
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolButton,
+            this.settingsToolButton});
+            this.toolStrip1.Location = new System.Drawing.Point(695, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(91, 60);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // closeToolButton
+            // 
+            this.closeToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.closeToolButton.AutoSize = false;
+            this.closeToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.closeToolButton.Image = global::LaraServe.Properties.Resources.close1;
+            this.closeToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.closeToolButton.Name = "closeToolButton";
+            this.closeToolButton.Size = new System.Drawing.Size(36, 42);
+            this.closeToolButton.Text = "Close";
+            this.closeToolButton.Click += new System.EventHandler(this.minimizeToTrayToolStripMenuItem_Click);
+            this.closeToolButton.MouseEnter += new System.EventHandler(this.closeToolButton_MouseEnter);
+            this.closeToolButton.MouseLeave += new System.EventHandler(this.closeToolButton_MouseLeave);
+            // 
+            // settingsToolButton
+            // 
+            this.settingsToolButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.settingsToolButton.AutoSize = false;
+            this.settingsToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.settingsToolButton.DropDown = this.mainContextMenu;
+            this.settingsToolButton.Image = global::LaraServe.Properties.Resources.cog1;
+            this.settingsToolButton.Name = "settingsToolButton";
+            this.settingsToolButton.Size = new System.Drawing.Size(48, 42);
+            this.settingsToolButton.Text = "Options";
+            this.settingsToolButton.MouseEnter += new System.EventHandler(this.settingsToolButton_MouseEnter);
+            this.settingsToolButton.MouseLeave += new System.EventHandler(this.settingsToolButton_MouseLeave);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox.Cue = "Search";
+            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.Location = new System.Drawing.Point(6, 8);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(163, 20);
+            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.cueTextBox1_TextChanged);
             // 
             // MainForm
             // 
@@ -357,13 +365,13 @@
             this.Text = "LaraServe";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.mainContextMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.projectListView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,6 +402,7 @@
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ImageList imageList1;
+        private BrightIdeasSoftware.OLVColumn statusColumn;
     }
 }
 

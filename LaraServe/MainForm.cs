@@ -22,6 +22,8 @@ namespace LaraServe
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
         }
 
+        # region ---------- Public Functions ----------
+
         /// <summary>
         /// Restors the window to the previous position.
         /// </summary>
@@ -43,18 +45,10 @@ namespace LaraServe
             this.BeginInvoke(new MethodInvoker(() =>
             {
                 this.Hide();
-                this.notifyIcon.ShowBalloonTip(2000);
+                this.notifyIcon.ShowBalloonTip(1000);
                 restoreToolStripMenuItem.Visible = true;
                 minimizeToTrayToolStripMenuItem.Visible = false;
             }));
-        }
-
-        /// <summary>
-        /// Adds new project.
-        /// </summary>
-        public void AddNewProject()
-        {
-
         }
 
         /// <summary>
@@ -66,18 +60,23 @@ namespace LaraServe
             projectListView.SetObjects(samples);
         }
 
-
-        protected override void OnLoad(EventArgs e)
+        /// <summary>
+        /// Adds new project.
+        /// </summary>
+        public void AddNewProject()
         {
-            base.OnLoad(e);
 
-            if (Options.StartMinimized)
-            {
-                this.BeginInvoke(new MethodInvoker(this.Hide));
-            }
-
-            this.LoadProjects();
         }
+
+
+        public void FilterBy(string text)
+        {
+
+        }
+
+        #endregion
+
+        #region ---------- Overrides ----------
 
         /// <summary>
         /// Drops shadow outside of the current form.
@@ -93,9 +92,24 @@ namespace LaraServe
             }
         }
 
-        /// <summary>
-        /// Changes into drag-move mode on this event.
-        /// </summary>
+        // Overrides OnLoad event.
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            if (Options.StartMinimized)
+            {
+                this.BeginInvoke(new MethodInvoker(this.Hide));
+            }
+
+            this.LoadProjects();
+        }
+
+        #endregion
+
+        #region ---------- Form Events ----------
+
+        // Changes into drag-move mode on this event.        
         private void TopPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -136,15 +150,37 @@ namespace LaraServe
             this.MinimizeToTray();
         }
 
-        private void cueTextBox1_KeyUp(object sender, KeyEventArgs e)
+        private void cueTextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (searchTextBox.Text.Length > 1)
             {
-                // filter or search by text
+                searchButton.BackgroundImage = Properties.Resources.clear;
+                this.FilterBy(searchTextBox.Text);
+            }
+            else
+            {
+                searchButton.BackgroundImage = Properties.Resources.glass;
             }
         }
 
+        #endregion
 
+        private void panel4_Enter(object sender, EventArgs e)
+        {
+            searchTextBox.Focus();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text.Length >= 2)
+            {
+                searchTextBox.Text = "";
+            }
+            else
+            {
+                this.FilterBy(searchTextBox.Text);                
+            }
+        }
 
     }
 }

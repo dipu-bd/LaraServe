@@ -138,6 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.ico" />
+    <None Include="Resources\glass.png" />
+    <None Include="Resources\clear.png" />
     <None Include="Resources\cross.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\add.png" />

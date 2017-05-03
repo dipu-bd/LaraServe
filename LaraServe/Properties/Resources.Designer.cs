@@ -63,9 +63,9 @@ namespace LaraServe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add {
+        internal static System.Drawing.Bitmap clear {
             get {
-                object obj = ResourceManager.GetObject("add", resourceCulture);
+                object obj = ResourceManager.GetObject("clear", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace LaraServe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cross {
+        internal static System.Drawing.Bitmap glass {
             get {
-                object obj = ResourceManager.GetObject("cross", resourceCulture);
+                object obj = ResourceManager.GetObject("glass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,16 +86,6 @@ namespace LaraServe.Properties {
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap settings {
-            get {
-                object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -19,7 +19,7 @@
         protected override void OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs e)
         {
             // do not render button backgroud
-            //base.OnRenderButtonBackground(e);
+            base.OnRenderButtonBackground(e);
         }
     }
 }

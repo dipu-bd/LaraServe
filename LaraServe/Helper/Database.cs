@@ -52,7 +52,7 @@ namespace LaraServe
         /// Gets all values stored in the key.
         /// </summary>
         /// <returns></returns>
-        public List<string> values()
+        public static List<string> values()
         {
             List<string> values = new List<string>();
             foreach (string s in Root.GetValueNames())

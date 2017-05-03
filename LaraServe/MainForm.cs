@@ -20,7 +20,24 @@ namespace LaraServe
 
             runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
+
+            nameColumn.ImageGetter = delegate (object row) {
+                Project project = (Project)row;
+                switch(project.Status)
+                {
+                    case Status.Active:
+                        return "active";
+                    case Status.Inactive:
+                        return "inactive";
+                    case Status.Failing:
+                        return "failing";
+                    case Status.Unknown:
+                    default:
+                        return "unknown";
+                }
+            };
         }
+
 
         # region ---------- Public Functions ----------
 
@@ -58,6 +75,8 @@ namespace LaraServe
         {
             Projects samples = Projects.SampleData();
             projectListView.SetObjects(samples);
+            nameColumn.AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            urlColumn.AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         /// <summary>
@@ -200,6 +219,18 @@ namespace LaraServe
         private void settingsToolButton_MouseLeave(object sender, EventArgs e)
         {
             settingsToolButton.Image = Properties.Resources.cog1;
+        }
+
+        private void projectListView_FormatCell(object sender, BrightIdeasSoftware.FormatCellEventArgs e)
+        {
+            if (e.Column == nameColumn)
+            {                
+                e.SubItem.Font = new Font(e.SubItem.Font.FontFamily, 12F, FontStyle.Regular);
+            }
+            else if(e.Column == urlColumn)
+            {
+                e.SubItem.Font = new Font("Consolas", 11F, FontStyle.Regular);
+            }
         }
 
     }

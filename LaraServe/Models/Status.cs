@@ -26,11 +26,6 @@ namespace LaraServe.Models
         /// <summary>
         /// Failed to start the project.
         /// </summary>
-        Failing,
-
-        /// <summary>
-        /// Error occured when loading the project.
-        /// </summary>
-        Error
+        Failing
     }
 }

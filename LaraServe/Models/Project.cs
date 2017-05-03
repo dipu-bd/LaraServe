@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaraServe.Models
 {
-    class Project
+    public class Project
     {
         private Dictionary<string, Task> commands;
 

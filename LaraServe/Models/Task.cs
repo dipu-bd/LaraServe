@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaraServe.Models
 {
-    class Task
+    public class Task
     {
         public Task(string name, string command)
         {

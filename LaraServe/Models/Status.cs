@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaraServe.Models
 {
-    enum Status
+    public enum Status
     {
         /// <summary>
         /// The status is not set.

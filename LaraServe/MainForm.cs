@@ -182,5 +182,25 @@ namespace LaraServe
             }
         }
 
+        private void closeToolButton_MouseEnter(object sender, EventArgs e)
+        {
+            closeToolButton.Image = Properties.Resources.close2;
+        }
+
+        private void closeToolButton_MouseLeave(object sender, EventArgs e)
+        {
+            closeToolButton.Image = Properties.Resources.close1;
+        }
+
+        private void settingsToolButton_MouseEnter(object sender, EventArgs e)
+        {
+            settingsToolButton.Image = Properties.Resources.cog2;
+        }
+
+        private void settingsToolButton_MouseLeave(object sender, EventArgs e)
+        {
+            settingsToolButton.Image = Properties.Resources.cog1;
+        }
+
     }
 }

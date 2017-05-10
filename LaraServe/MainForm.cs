@@ -17,13 +17,18 @@ namespace LaraServe
         public MainForm()
         {
             InitializeComponent();
+            InitializeSettings();
+        }
 
+        private void InitializeSettings()
+        {
             runAtStartupToolStripMenuItem.Checked = Options.RunAtStartup;
             startMinimizedToolStripMenuItem.Checked = Options.StartMinimized;
 
-            statusColumn.ImageGetter = delegate (object row) {
+            statusColumn.ImageGetter = delegate(object row)
+            {
                 Project project = (Project)row;
-                switch(project.Status)
+                switch (project.Status)
                 {
                     case Status.Active:
                         return "active.png";
@@ -36,8 +41,12 @@ namespace LaraServe
                         return "unknown.png";
                 }
             };
-        }
 
+            var linkstyle = new BrightIdeasSoftware.HyperlinkStyle();
+            linkstyle.Normal.ForeColor = Color.Cyan;
+            linkstyle.Visited.ForeColor = Color.LightCyan;
+            projectListView.HyperlinkStyle = linkstyle;
+        }
 
         # region ---------- Public Functions ----------
 
@@ -216,13 +225,30 @@ namespace LaraServe
 
         private void projectListView_FormatCell(object sender, BrightIdeasSoftware.FormatCellEventArgs e)
         {
-            if (e.Column == nameColumn)
+            if(e.Column == statusColumn)
+            {
+                e.Item.ToolTipText = ((Project)e.Model).Status.ToString();
+            }
+            else if (e.Column == nameColumn)
             {                
-                e.SubItem.Font = new Font(e.SubItem.Font.FontFamily, 12F, FontStyle.Regular);
+                e.SubItem.Font = new Font(e.SubItem.Font.FontFamily, 11F, FontStyle.Regular);
             }
             else if(e.Column == urlColumn)
             {
-                e.SubItem.Font = new Font("Consolas", 11F, FontStyle.Regular);                
+                e.SubItem.Font = new Font("Consolas", 10F, FontStyle.Regular);                
+            }
+        }
+
+
+        private void projectListView_IsHyperlink(object sender, BrightIdeasSoftware.IsHyperlinkEventArgs e)
+        {
+            if(e.Column == nameColumn) 
+            {
+                e.Url = ((Project)e.Model).Location;
+            }
+            else if(e.Column == urlColumn)
+            {
+                e.Url = ((Project)e.Model).URL;
             }
         }
 

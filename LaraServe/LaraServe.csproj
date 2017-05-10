@@ -138,16 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.ico" />
-    <None Include="Resources\cog1.png" />
-    <None Include="Resources\cog2.png" />
-    <None Include="Resources\close2.png" />
-    <None Include="Resources\close1.png" />
-    <None Include="Resources\glass.png" />
-    <None Include="Resources\clear.png" />
-    <None Include="Resources\cross.png" />
-    <None Include="Resources\settings.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\Logo.tif" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

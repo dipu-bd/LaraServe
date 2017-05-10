@@ -171,18 +171,18 @@ namespace LaraServe
 
         private void cueTextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (searchTextBox.Text.Length > 1)
+            if (searchTextBox.Text.Length >= 1)
             {
+                searchButton.Enabled = true;
                 searchButton.BackgroundImage = Properties.Resources.clear;
                 this.FilterBy(searchTextBox.Text);
             }
             else
             {
                 searchButton.BackgroundImage = Properties.Resources.glass;
+                searchButton.Enabled = false;
             }
         }
-
-        #endregion
 
         private void panel4_Enter(object sender, EventArgs e)
         {
@@ -191,14 +191,7 @@ namespace LaraServe
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (searchTextBox.Text.Length >= 2)
-            {
-                searchTextBox.Text = "";
-            }
-            else
-            {
-                this.FilterBy(searchTextBox.Text);                
-            }
+            searchTextBox.Text = "";
         }
 
         private void closeToolButton_MouseEnter(object sender, EventArgs e)
@@ -229,9 +222,10 @@ namespace LaraServe
             }
             else if(e.Column == urlColumn)
             {
-                e.SubItem.Font = new Font("Consolas", 11F, FontStyle.Regular);
+                e.SubItem.Font = new Font("Consolas", 11F, FontStyle.Regular);                
             }
         }
 
+        #endregion
     }
 }
